@@ -1,7 +1,13 @@
 # Copy To HipChat
 Plugin to append `/code` to a selection of text for syntax highlighting in HipChat.
 # Usage
-Select Text and press `shift+command+h` 
+Select text and press `shift+command+h`. Paste into HipChat.
+# Output
+```
+# path/to/filename
+class Animal
+end
+```
 # Installation
 ### Manually
 Copy and Paste the repo into your Packages Directory `~/Library/Application Support/Sublime Text 3/Packages`

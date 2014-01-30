@@ -13,9 +13,11 @@ class CopyToHipChatCommand(sublime_plugin.TextCommand):
 
     # get the syntax
     syntax = self.view.settings().get('syntax')
+
     # get file path
-    filename = self.view.file_name()
-    # comment out filename
-    filename = "# " + filename + "\n"
+    file_name = self.view.file_name()
+    # comment style
+    comment_style = "#"
     # append `/code `
-    sublime.set_clipboard( "/code " + filename + selectionText )
+    clip_data = "/code " + comment_style + " " + file_name + "\n" + selectionText
+    sublime.set_clipboard(clip_data)
