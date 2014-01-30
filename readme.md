@@ -2,6 +2,9 @@
 Plugin to append `/code` to a selection of text for syntax highlighting in HipChat.
 # Usage
 Select Text and press `shift+command+h` 
+# Installation
+### Manually
+Copy and Paste the repo into your Packages Directory `~/Library/Application Support/Sublime Text 3/Packages`
 # Resources
-[HipChat Slash Commands](http://help.hipchat.com/knowledgebase/articles/64451-work-faster-with-slash-commands)
-[Sublime Text 3 API Docs](https://www.sublimetext.com/docs/3/api_reference.html)
+- [HipChat Slash Commands](http://help.hipchat.com/knowledgebase/articles/64451-work-faster-with-slash-commands)
+- [Sublime Text 3 API Docs](https://www.sublimetext.com/docs/3/api_reference.html)
