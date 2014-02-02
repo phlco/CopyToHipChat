@@ -62,11 +62,17 @@ class CopyToHipChatCommand(sublime_plugin.TextCommand):
         self.view.sel().add(sublime.Region(target))
 
         # comment out the file name
-        self.view.run_command("toggle_comment")
+        settings = sublime.load_settings("copy_to_hipchat.sublime-settings")
+        if settings.get("native_comment"):
+            self.view.run_command("toggle_comment")
 
         # get commented out file name
         selection = self.view.full_line(0)
         commented_out_file_name = self.view.substr(selection).rstrip()
+
+        if not settings.get("native_comment"):
+            garnish = settings.get("garnish")
+            commented_out_file_name = garnish + commented_out_file_name
 
         # remove the commented file name
         self.view.erase(edit, selection)

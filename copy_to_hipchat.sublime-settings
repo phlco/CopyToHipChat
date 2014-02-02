@@ -1,5 +1,8 @@
 {
   // includes
   "file_name": false,
-  "path": true
+  "path": true,
+  // comment file path with native comment other wise set custom garnish
+  "native_comment": false,
+  "garnish": "=> "
 }
