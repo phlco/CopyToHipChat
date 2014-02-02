@@ -1,17 +1,25 @@
+# -*- coding: utf-8 -*-
+
 # in hipchat prefacing `/code` displays message with syntax highlighting
 # this sets current text selection to the clipboard
 # appends `/code ` and the commented file name
 
-import sublime, sublime_plugin
+import sublime
+import sublime_plugin
 
 class CopyToHipChatCommand(sublime_plugin.TextCommand):
     def run(self, edit):
+        # load settings
+        settings = sublime.load_settings('copy_to_hipchat.sublime-settings')
 
         # get highlighted text
         selected_text = self.get_text_selection(edit)
 
         # get file name as a commented out string
-        commented_file_name = self.comment_file_name(edit)
+        if settings.get('include_file_name'):
+            commented_file_name = self.comment_file_name(edit)
+        else:
+            commented_file_name = ""
 
         # append `/code `
         clip_data = "/code " + commented_file_name + "\n" + selected_text
