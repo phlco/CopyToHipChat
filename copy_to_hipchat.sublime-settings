@@ -1,3 +1,5 @@
 {
-  "include_file_name": true
+  // includes
+  "file_name": false,
+  "path": true
 }
