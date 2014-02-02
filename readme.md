@@ -1,5 +1,5 @@
 # Copy To HipChat
-Sublime Plugin to append `/code` to a selection of text for syntax highlighting in HipChat.
+Sublime Plugin to append `/code` to a selection of text for syntax highlighting in [HipChat](http://www.hipchat.com/).
 
 # Usage
 Select text and press `shift+command+h`. Paste into HipChat.
@@ -7,11 +7,13 @@ Select text and press `shift+command+h`. Paste into HipChat.
 By default the file name and path are appended as a comment at the message. These settings can be changed by altering the JSON in `copy_to_hipchat.sublime-settings`
 
 ## Output
+
 ```ruby
 # optional/path/to/filename.rb
 class Animal
 end
 ```
+
 ```js
 // optional_filename.js
 function Animal(){
@@ -19,6 +21,7 @@ function Animal(){
 ```
 
 ## Installation
+
 ### Package Control
 You can install directly from Package Control. First install [Package Control](https://sublime.wbond.net/) then search for Copy To HipChat.
 
