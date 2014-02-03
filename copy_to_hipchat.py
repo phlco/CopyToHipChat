@@ -37,14 +37,19 @@ class CopyToHipChatCommand(sublime_plugin.TextCommand):
         return txt
 
     def get_file_name(self, edit):
-        path, basename = os.path.split(self.view.file_name())
-        settings = sublime.load_settings("copy_to_hipchat.sublime-settings")
-        file_name = ""
-        if settings.get("path"):
-            file_name += path + "/"
-        if settings.get("file_name"):
-            file_name += basename
-        return file_name
+        if self.view.file_name():
+            path, basename = os.path.split(self.view.file_name())
+            settings = sublime.load_settings("copy_to_hipchat.sublime-settings")
+            file_name = ""
+            if settings.get("path"):
+                file_name += path + "/"
+            if settings.get("file_name"):
+                file_name += basename
+            return file_name
+        else:
+            # todo: add filetype?
+            # scope = self.view.scope_name(self.view.sel()[0].a)
+            return "unsaved file"
 
     def comment_file_name(self, edit, file_name):
         # add the file name to top of file with a new line
