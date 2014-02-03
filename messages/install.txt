@@ -1,0 +1,14 @@
+################
+Copy To HipChat
+################
+
+Keyboard command to append `/code path/to/filename` to selected text for pasting into HipChat
+
+To use:
+
+mac: Highlight text and then press `cmd+shift+h`
+windows/linux: Highlight text and then press `ctrl+shift+h`
+
+Settings:
+
+Edit `copy_to_hipchat.sublime-settings` to change the commented filepath

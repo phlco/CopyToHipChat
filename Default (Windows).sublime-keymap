@@ -1,5 +1,5 @@
 [
   {
-    "keys": ["shift+ctrl+h"], "command": "copy_to_hip_chat"
+    "keys": ["ctrl+shift+h"], "command": "copy_to_hip_chat"
   }
 ]
