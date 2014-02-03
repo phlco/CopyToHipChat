@@ -4,7 +4,9 @@ Sublime Plugin to append `/code` to a selection of text for syntax highlighting 
 # Usage
 Select text and press `shift+command+h`. Paste into HipChat.
 
-By default the file name and path are appended as a comment at the message. These settings can be changed by altering the JSON in `copy_to_hipchat.sublime-settings`
+By default the file name and path are appended as a comment at the message.
+
+These settings can be changed by altering the JSON in `copy_to_hipchat.sublime-settings`
 
 ## Output
 
