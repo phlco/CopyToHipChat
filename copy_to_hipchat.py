@@ -12,13 +12,12 @@ class CopyToHipChatCommand(sublime_plugin.TextCommand):
     sublime.status_message("copying to hipchat")
 
     slash = "/code "
-    comment = self.get_comment(edit)
+    file_name = self.get_file_name()
     message = self.view.substr(self.view.sel()[0])
 
-    sublime.set_clipboard(slash + comment + "\n" + message)
+    self.set_comment(edit, slash, file_name, message)
 
-  def get_comment(self, edit):
-    file_name = self.get_file_name()
+  def set_comment(self, edit, slash, file_name, message):
     scratchBuffer = self.get_buffer()
     scratchBuffer.insert(edit, 0, file_name)
     scratchBuffer.run_command("select_all")
@@ -26,7 +25,7 @@ class CopyToHipChatCommand(sublime_plugin.TextCommand):
     selection = scratchBuffer.full_line(0)
     commented_text = scratchBuffer.substr(selection).rstrip()
     scratchBuffer.close()
-    return commented_text
+    sublime.set_clipboard(slash + commented_text + "\n" + message)
 
   def get_file_name(self):
     file_name = ""
@@ -38,6 +37,7 @@ class CopyToHipChatCommand(sublime_plugin.TextCommand):
         file_name += path
       if settings.get("file"):
         file_name += file
+    print(file_name)
     return file_name
 
   def get_buffer(self):

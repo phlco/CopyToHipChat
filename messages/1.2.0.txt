@@ -1,0 +1,9 @@
+################
+Copy To HipChat
+################
+
+Changes
+- Rewrote to utilize scratch buffer
+- Added `Copy To HipChat` to `Preferences > Package Settings`
+- Added `copy_to_hipchat.sublime-settings` to make commented filepath optional
+- Removed `native_comment` and `garnish` for simplicity for now

@@ -1,10 +1,5 @@
 {
-  "slash": "/code",
-  // includes
   "file": true,
-  "path": true,
-  // comment file path with native comment other wise set custom garnish
-  "native_comment": true,
-  "garnish": "#"
+  "path": true
 }
 
