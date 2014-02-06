@@ -15,17 +15,19 @@ class CopyToHipChatCommand(sublime_plugin.TextCommand):
     file_name = self.get_file_name()
     message = self.view.substr(self.view.sel()[0])
 
-    self.set_comment(edit, slash, file_name, message)
+    # scratchBuffer = self.get_buffer()
+    # self.get_comment(edit, slash, file_name, message, scratchBuffer)
+    sublime.set_clipboard(slash + "# " + file_name + "\n" + message)
 
-  def set_comment(self, edit, slash, file_name, message):
-    scratchBuffer = self.get_buffer()
-    scratchBuffer.insert(edit, 0, file_name)
-    scratchBuffer.run_command("select_all")
-    scratchBuffer.run_command("toggle_comment")
-    selection = scratchBuffer.full_line(0)
-    commented_text = scratchBuffer.substr(selection).rstrip()
-    scratchBuffer.close()
-    sublime.set_clipboard(slash + commented_text + "\n" + message)
+  # def get_comment(self, edit, slash, file_name, message, buffer):
+  #   buffer.insert(edit, 0, file_name)
+  #   buffer.run_command("select_all")
+  #   buffer.run_command("toggle_comment")
+  #   buffer.run_command("select_all")
+  #   buffer.run_command("copy")
+  #   selection = buffer.full_line(0)
+  #   commented_text = buffer.substr(selection).rstrip()
+  #   buffer.close()
 
   def get_file_name(self):
     file_name = ""
@@ -40,12 +42,31 @@ class CopyToHipChatCommand(sublime_plugin.TextCommand):
     print(file_name)
     return file_name
 
-  def get_buffer(self):
-    sublime.status_message("making scratch buffer")
+  # def get_buffer(self):
+  #   sublime.status_message("making scratch buffer")
 
-    new_buffer = sublime.Window.new_file(self.view.window())
-    new_buffer.set_name("Scratch")
-    new_buffer.set_scratch(True)
-    syntax = self.view.settings().get('syntax')
-    new_buffer.set_syntax_file(syntax)
-    return new_buffer
+  #   new_buffer = sublime.Window.new_file(self.view.window())
+  #   new_buffer.set_name("Scratch")
+  #   new_buffer.set_scratch(True)
+  #   syntax = self.view.settings().get('syntax')
+  #   new_buffer.set_syntax_file(syntax)
+  #   return new_buffer
+
+# class HipChatEventCommand(sublime_plugin.EventListener):
+
+#   def on_new(self, view):
+#     if view.name() == "Scratch":
+#       print("new")
+
+#   def on_modified(self, view):
+#     if view.name() == "Scratch":
+#       print('modified')
+
+#   def on_text_command(self, view, command_name, args):
+#     if view.name() == "Scratch" and command_name == "copy":
+#       print("on_text")
+#       view.close()
+
+#   def on_pre_close(self, view):
+#     if view.name() == "Scratch":
+#       print("pre_close")
