@@ -1,5 +1,4 @@
 {
-  "file": true,
-  "path": false
+  "include_path": false,
 }
 

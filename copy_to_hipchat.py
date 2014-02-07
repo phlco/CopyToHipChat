@@ -2,26 +2,19 @@ import sublime
 import sublime_plugin
 import os
 
-settings = sublime.load_settings("copy_to_hipchat.sublime-settings")
-show_path = settings.get("path")
-show_file = settings.get("file")
 
 class CopyToHipChatCommand(sublime_plugin.TextCommand):
 
-    global show_path
-    global show_file
 
     def run(self, edit):
 
-        file_name = ""
-        if self.view.file_name() == None:
-            file_name += "Unsaved"
-        else:
-            dirname, basename = os.path.split(self.view.file_name())
-            if settings.get("path"):
-                file_name += dirname
-            if settings.get("file"):
-                file_name += basename
+        settings = sublime.load_settings("copy_to_hipchat.sublime-settings")
+        show_path = settings.get("path")
+
+        file_name = os.path.basename(self.view.file_name())
+
+        if settings.get("include_path"):
+            file_name = self.view.file_name()
 
         self.copy_to_hipchat(edit, file_name)
 
