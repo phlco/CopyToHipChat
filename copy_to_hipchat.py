@@ -11,10 +11,12 @@ class CopyToHipChatCommand(sublime_plugin.TextCommand):
         settings = sublime.load_settings("copy_to_hipchat.sublime-settings")
         show_path = settings.get("path")
 
-        file_name = os.path.basename(self.view.file_name())
-
-        if settings.get("include_path"):
-            file_name = self.view.file_name()
+        try:
+            file_name = os.path.basename(self.view.file_name())
+            if settings.get("include_path"):
+                file_name = self.view.file_name()
+        except:
+            file_name = "unsaved"
 
         self.copy_to_hipchat(edit, file_name)
 
