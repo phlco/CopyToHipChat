@@ -1,0 +1,7 @@
+################
+Copy To HipChat
+################
+
+Changes
+- Simplified preferences to show optional full path or filename
+- Bugfix for filenames. Should be working now.

@@ -9,7 +9,6 @@ class CopyToHipChatCommand(sublime_plugin.TextCommand):
     def run(self, edit):
 
         settings = sublime.load_settings("copy_to_hipchat.sublime-settings")
-        show_path = settings.get("path")
 
         try:
             file_name = os.path.basename(self.view.file_name())
