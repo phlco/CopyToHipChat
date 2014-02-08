@@ -4,4 +4,5 @@ Copy To HipChat
 
 Changes
 - Simplified preferences to show optional full path or filename
+- Should handle closing scratch window in Sublime 2 and 3
 - Bugfix for filenames. Should be working now.
