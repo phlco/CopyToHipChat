@@ -36,5 +36,11 @@ class CopyToHipChatCommand(sublime_plugin.TextCommand):
         new_buffer.run_command("toggle_comment")
         selection = new_buffer.full_line(0)
         commented_text = new_buffer.substr(selection).rstrip() + "\n"
-        new_buffer.close()
+        try:
+            new_buffer.close()
+        except:
+            window = sublime.active_window()
+            window.run_command("close_file")
         return commented_text
+
+
